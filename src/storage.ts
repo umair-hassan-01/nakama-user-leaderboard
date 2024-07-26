@@ -12,3 +12,4 @@ function storageRpc(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkrunti
     }
     return rpcResponse;
 }
+

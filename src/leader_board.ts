@@ -13,7 +13,7 @@ interface GetLeaderBoardResponse{
 let getLeaderBoardRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkruntime.Nakama , payload:string):string{
     let request:GetLeaderBoardRequest = JSON.parse(payload);
     let response:GetLeaderBoardResponse;
-
+    
     try{
         // fetch the leaderboards using provided ids
         let _leaderBoardData:nkruntime.LeaderboardRecordList = nk.leaderboardRecordsList(request.leaderBoardId,request.ownerIds,100);
