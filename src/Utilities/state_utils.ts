@@ -15,6 +15,7 @@ class StateUtils{
     constructor(){
 
     }
+    
     // set user current state
     public setUserState(nk:nkruntime.Nakama , userId:string , userState:IUserState):void{
         if(!userState.coins){
@@ -35,7 +36,7 @@ class StateUtils{
 
         try{
             new StorageUtils().WriteObject(nk,StorageUtils.PLAYER_COLLECTION,StorageUtils.PLAYER_STATE_KEY,userId,userState);
-            
+
         }catch(error){
             throw error
         }

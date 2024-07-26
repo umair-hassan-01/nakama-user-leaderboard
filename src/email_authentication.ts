@@ -18,13 +18,13 @@ let emailAuthRpc = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk
         let jsonPayload:authPayload = JSON.parse(payload);
         let customErrorMessage:string = "";
         let authUtil = new AuthUtils()
-        
+
         if(!authUtil.validatePassword(jsonPayload.password)){
-            customErrorMessage = "user name should be at least 6 characters"
+            customErrorMessage = "password should be at least 8 characters"
         }
         
         if(!authUtil.validateUserName(jsonPayload.username)){
-            customErrorMessage = "password must be at least 8 characters"
+            customErrorMessage = "user name must be at least 6 characters"
         }
 
         // validate the email

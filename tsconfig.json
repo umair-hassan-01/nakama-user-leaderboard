@@ -2,10 +2,13 @@
   "files": [
     "./src/index.ts",
     "./src/storage.ts",
+    "./src/match_end.ts",
     "./src/email_authentication.ts",
+    "./src/leader_board.ts",
     "./src/Utilities/auth_utils.ts",
     "./src/Utilities/state_utils.ts",
-    "./src/Utilities/storage_utils.ts"
+    "./src/Utilities/storage_utils.ts",
+    "./src/Utilities/leaderboard_utils.ts"
   ],
   "compilerOptions": {
     "target": "es5",
