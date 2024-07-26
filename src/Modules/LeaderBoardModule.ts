@@ -1,12 +1,7 @@
-enum GameConsts{
-    GLOBAL_LEADERBOARD = "hexa_b457"
-}
-
-class LeaderBoardUtils{
-    static readonly GLOBAL_LEADERBOARD = "hexa_b457";
+class LeaderboardModule{
 
     public createGlobalLeaderBoard(nk:nkruntime.Nakama){
-        let id = GameConsts.GLOBAL_LEADERBOARD;
+        let id = GLOBAL_LEADERBOARD;
         let order = nkruntime.SortOrder.DESCENDING;
         let operator = nkruntime.Operator.BEST;
         let authoritative = false;

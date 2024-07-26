@@ -3,7 +3,7 @@ function storageRpc(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkrunti
 
     try{
         //store default state in 
-        new StateUtils().setUserState(nk,ctx.userId,{coins:500});
+        new StateModule().setUserState(nk,ctx.userId,{coins:500});
         rpcResponse = JSON.stringify({
             "message":"user state reset successful"
         })

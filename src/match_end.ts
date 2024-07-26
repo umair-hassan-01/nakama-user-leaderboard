@@ -12,13 +12,13 @@ interface MatchEndResponse{
 
 let matchEndRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkruntime.Nakama , payload:string):string{
     let request:MatchEndRequest = JSON.parse(payload);
-    const finalScore = new LeaderBoardUtils().scoreCalculation(request.score,request.finalHealth);
+    const finalScore = new LeaderboardModule().scoreCalculation(request.score,request.finalHealth);
     
     let response:MatchEndResponse;
 
     // now store the final score in leaderboard
     try{
-        const leaderBoardId:string = GameConsts.GLOBAL_LEADERBOARD.toString();
+        const leaderBoardId:string = GLOBAL_LEADERBOARD;
         let  metaData = {
             "name":"nothing now"
         }

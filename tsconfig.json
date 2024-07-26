@@ -3,12 +3,15 @@
     "./src/index.ts",
     "./src/storage.ts",
     "./src/match_end.ts",
-    "./src/email_authentication.ts",
     "./src/leader_board.ts",
-    "./src/Utilities/auth_utils.ts",
-    "./src/Utilities/state_utils.ts",
-    "./src/Utilities/storage_utils.ts",
-    "./src/Utilities/leaderboard_utils.ts"
+    "src/Utilities/StorageUtils.ts",
+    "./src/Utilities/GameConstants.ts",
+    "./src/Utilities/GlobalInterfaces.ts",
+    "./src/Modules/StateModule.ts",
+    "./src/Modules/AuthModule/AuthModule.ts",
+    "./src/Modules/LeaderBoardModule.ts",
+    "./src/Modules/AuthModule/AuthRpc.ts",
+    "./src/Modules/AuthModule/AuthInterface.ts"
   ],
   "compilerOptions": {
     "target": "es5",

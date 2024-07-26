@@ -4,6 +4,6 @@ function InitModule(ct:nkruntime.Context,logger:nkruntime.Logger,nk:nkruntime.Na
     initializer.registerRpc("storagerpc" , storageRpc);
     initializer.registerRpc("matchendrpc" , matchEndRpc);
     initializer.registerRpc("getLeaderBoardRpc" , getLeaderBoardRpc);
-    new LeaderBoardUtils().createGlobalLeaderBoard(nk);
+    new LeaderboardModule().createGlobalLeaderBoard(nk);
     logger.debug("rpc registered 3rd time");
 }

@@ -1,34 +1,22 @@
-interface authResponse {
-    success:boolean,
-    userId:string,
-    successMessage:string,
-    errorMessage:string,
-}
-
-interface authPayload{
-    email:string,
-    password:string,
-    username:string,
-}
-
-
 let emailAuthRpc = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkruntime.Nakama , payload:string):string{
     try{
-        logger.debug(payload);
-        let jsonPayload:authPayload = JSON.parse(payload);
-        let customErrorMessage:string = "";
-        let authUtil = new AuthUtils()
+        //logger.debug(payload);
+        let jsonPayload:IAuthRequest = JSON.parse(payload);
+        let auth = new AuthModule();
 
-        if(!authUtil.validatePassword(jsonPayload.password)){
+        let customErrorMessage:string = "";
+        let response:IAuthResponse;
+
+        if(!auth.validatePassword(jsonPayload.password)){
             customErrorMessage = "password should be at least 8 characters"
         }
         
-        if(!authUtil.validateUserName(jsonPayload.username)){
+        if(!auth.validateUserName(jsonPayload.username)){
             customErrorMessage = "user name must be at least 6 characters"
         }
 
         // validate the email
-        if(!authUtil.validateEmail(jsonPayload.email)){
+        if(!auth.validateEmail(jsonPayload.email)){
             customErrorMessage = "invalid email"
         }
 
@@ -41,19 +29,19 @@ let emailAuthRpc = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk
             })
         }
 
-        // try to authrnticate the user
-        const response = nk.authenticateEmail(jsonPayload.email,jsonPayload.password,jsonPayload.username);
+        // try to authenticate the user
+        const newUser:nkruntime.AuthResult = nk.authenticateEmail(jsonPayload.email,jsonPayload.password,jsonPayload.username);
         
         //see if user already has a state
-        const storageObjects:nkruntime.StorageObject[] = new StorageUtils().readObject(nk,StorageUtils.PLAYER_COLLECTION,StorageUtils.PLAYER_STATE_KEY,response.userId);
+        const storageObjects:nkruntime.StorageObject[] = new StorageUtils().readObject(nk,PLAYER_COLLECTION,PLAYER_STATE_KEY,newUser.userId);
         if(storageObjects.length <= 0){
             // set default user state [1000 bonus coins for new comers]
-            new StateUtils().setUserState(nk,response.userId,{coins:1000});
+            new StateModule().setUserState(nk,newUser.userId,{coins:1000});
         }
 
         return JSON.stringify({
             success:true,
-            userId:response.userId,
+            userId:newUser.userId,
             successMessage:"User authentication successful",
             errorMessage:""
         })
