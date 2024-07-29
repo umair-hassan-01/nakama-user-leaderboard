@@ -4,11 +4,11 @@ let getLeaderBoardRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , l
     
     try{
         // fetch the leaderboards using provided ids
-        let _leaderBoardData:nkruntime.LeaderboardRecordList = nk.leaderboardRecordsList(request.leaderBoardId,request.ownerIds,100);
-        logger.debug(JSON.stringify(_leaderBoardData));
+        let leaderBoardData:nkruntime.LeaderboardRecordList = nk.leaderboardRecordsList(request.leaderBoardId,request.ownerIds,100);
+        logger.debug(JSON.stringify(leaderBoardData));
         response = {
             success:true,
-            leaderBoardData:_leaderBoardData,
+            leaderBoardData:leaderBoardData,
             successMessage:"leader boards fetched successfuly",
             errorMessage:""
         }

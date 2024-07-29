@@ -7,6 +7,7 @@ function InitModule(ct:nkruntime.Context,logger:nkruntime.Logger,nk:nkruntime.Na
     try{
     new LeaderboardModule().createGlobalLeaderBoard(nk);
     }catch(error:any){
+        logger.error("error while creating global leaderboard");
         logger.debug(error.message);
     }
     logger.debug("rpc registered 3rd time");
