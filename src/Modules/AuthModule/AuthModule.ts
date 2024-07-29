@@ -18,4 +18,15 @@ class AuthModule{
         }
         return false;
     }
+
+    public generteResponse(success:boolean,successMessage:string,errorMessage:string,userState:IUserState,userId:string):IAuthResponse{
+        let response:IAuthResponse = {
+            success:success,
+            successMessage:successMessage,
+            errorMessage:errorMessage,
+            userState:userState,
+            userId:userId
+        }
+        return response;
+    }
 }

@@ -1,5 +1,5 @@
 class StorageUtils{
-    public WriteObject(nk:nkruntime.Nakama,collection:string , key:string , userId:string , value:any):nkruntime.StorageWriteAck[]{
+    public writeObject(nk:nkruntime.Nakama,collection:string , key:string , userId:string , value:any):nkruntime.StorageWriteAck[]{
         const writer:nkruntime.StorageWriteRequest = {
             collection :collection,
             key:key,

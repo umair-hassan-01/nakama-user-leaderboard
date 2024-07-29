@@ -1,7 +1,7 @@
 class StateModule{
 
     // set user current state
-    public setUserState(nk:nkruntime.Nakama , userId:string , userState:IUserState):void{
+    public setUserState(nk:nkruntime.Nakama , userId:string , userState:IUserState):nkruntime.StorageWriteAck[]{
         if(!userState.coins){
             userState.coins = DEFAULT_COINS;
         }
@@ -23,8 +23,8 @@ class StateModule{
         }
 
         try{
-            new StorageUtils().WriteObject(nk,PLAYER_COLLECTION,PLAYER_STATE_KEY,userId,userState);
-
+            const newState = new StorageUtils().writeObject(nk,PLAYER_COLLECTION,PLAYER_STATE_KEY,userId,userState);
+            return newState;
         }catch(error){
             throw error
         }
