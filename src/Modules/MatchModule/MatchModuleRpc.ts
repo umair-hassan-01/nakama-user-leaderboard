@@ -1,26 +1,14 @@
-interface MatchEndRequest{
-    score:number
-    finalHealth:number
-}
-
-interface MatchEndResponse{
-    success:boolean
-    record:nkruntime.LeaderboardRecord | null
-    successMessage:string
-    errorMessage:string
-}
-
 let matchEndRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkruntime.Nakama , payload:string):string{
-    let request:MatchEndRequest = JSON.parse(payload);
+    let request:IMatchEndRequest = JSON.parse(payload);
     const finalScore = new LeaderboardModule().scoreCalculation(request.score,request.finalHealth);
     
-    let response:MatchEndResponse;
+    let response:IMatchEndResponse;
 
     // now store the final score in leaderboard
     try{
         const leaderBoardId:string = GLOBAL_LEADERBOARD;
         let  metaData = {
-            "name":"nothing now"
+            "username":ctx.username
         }
 
         logger.debug("start writing");

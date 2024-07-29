@@ -1,18 +1,6 @@
-interface GetLeaderBoardRequest{
-    leaderBoardId:string,
-    ownerIds?:string[]
-}
-
-interface GetLeaderBoardResponse{
-    success:boolean
-    leaderBoardData:nkruntime.LeaderboardRecordList
-    successMessage:string
-    errorMessage:string
-}
-
 let getLeaderBoardRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk:nkruntime.Nakama , payload:string):string{
-    let request:GetLeaderBoardRequest = JSON.parse(payload);
-    let response:GetLeaderBoardResponse;
+    let request:IGetLeaderBoardRequest = JSON.parse(payload);
+    let response:IGetLeaderBoardResponse;
     
     try{
         // fetch the leaderboards using provided ids

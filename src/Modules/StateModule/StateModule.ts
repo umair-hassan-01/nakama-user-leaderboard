@@ -1,11 +1,3 @@
-interface IUserState{
-    xp?:number,
-    levels?:number,
-    coins?:number,
-    health?:number,
-    games?:number
-}
-
 class StateModule{
 
     // set user current state

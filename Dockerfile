@@ -8,7 +8,10 @@ RUN npm install
 COPY tsconfig.json .
 COPY src/*.ts src/
 COPY src/Utilities/*.ts src/Utilities/
-COPY src/Modules/*.ts src/Modules/
+COPY src/Modules/AuthModule/*.ts src/Modules/AuthModule/
+COPY src/Modules/LeaderBoardModule/*.ts src/Modules/LeaderBoardModule/
+COPY src/Modules/MatchModule/*.ts src/Modules/MatchModule/
+COPY src/Modules/StateModule/*.ts src/Modules/StateModule/
 RUN npx tsc
 
 FROM registry.heroiclabs.com/heroiclabs/nakama:3.22.0
