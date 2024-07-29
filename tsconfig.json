@@ -3,6 +3,7 @@
     "src/main.ts",
     "./src/storage.ts",
     "src/Utilities/StorageUtils.ts",
+    "src/Utilities/Utils.ts",
     "./src/Utilities/GameConstants.ts",
     "./src/Utilities/GlobalInterfaces.ts",
     "./src/Modules/AuthModule/AuthModule.ts",
