@@ -17,7 +17,15 @@
     "src/Modules/StateModule/StateModule.ts",
     "src/Modules/StateModule/StateModuleInterface.ts",
     "./src/Modules/AuthModule/AuthRpc.ts",
-    "./src/Modules/AuthModule/AuthInterface.ts"
+    "./src/Modules/AuthModule/AuthInterface.ts",
+
+    "./src/Modules/GroupChatModule/GroupChatModule.ts",
+    "./src/Modules/GroupChatModule/GroupChatInterface.ts",
+    "./src/Modules/GroupChatModule/GroupChatRpc.ts",
+
+    "./src/Modules/ConfigurationModule/ConfigurationInterface.ts",
+    "./src/Modules/ConfigurationModule/ConfigurationModule.ts",
+    "./src/Modules/ConfigurationModule/ConfigurationRpc.ts",
   ],
   "compilerOptions": {
     "target": "es5",

@@ -1,5 +1,5 @@
 interface IResponse{
     success:boolean
-    successMessage:string
-    errorMessage:string
+    errorCode?:string
+    message:string
 }

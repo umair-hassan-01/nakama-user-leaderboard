@@ -19,11 +19,10 @@ class AuthModule{
         return false;
     }
 
-    public generteResponse(success:boolean,successMessage:string,errorMessage:string,userState:IUserState,userId:string):IAuthResponse{
+    public generteResponse(success:boolean,message:string,userState:IUserState,userId:string):IAuthResponse{
         let response:IAuthResponse = {
             success:success,
-            successMessage:successMessage,
-            errorMessage:errorMessage,
+            message:message,
             userState:userState,
             userId:userId
         }

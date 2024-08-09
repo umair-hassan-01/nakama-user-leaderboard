@@ -23,7 +23,7 @@ let emailAuthRpc = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk
         }
 
         if(customErrorMessage.length > 0){
-            return JSON.stringify(auth.generteResponse(false,"",customErrorMessage,{},""));
+            return JSON.stringify(auth.generteResponse(false,customErrorMessage,{},""));
         }
 
         // try to authenticate the user
@@ -51,10 +51,10 @@ let emailAuthRpc = function(ctx:nkruntime.Context , logger:nkruntime.Logger , nk
         }
 
         let successMessage = "User authentication successful";
-        return JSON.stringify(auth.generteResponse(true,successMessage,"",newState,newUser.userId));
+        return JSON.stringify(auth.generteResponse(true,successMessage,newState,newUser.userId));
 
     }catch(error:any){
         logger.debug(error.message);
-        return JSON.stringify(auth.generteResponse(false,"",error.message,{},""));
+        return JSON.stringify(auth.generteResponse(false,error.message,{},""));
     }
 }

@@ -1,9 +1,8 @@
 class Utils{
-    public generateResponse(success:boolean , successMessage:string , errorMessage:string):IResponse{
+    public generateResponse(success:boolean , message:string):IResponse{
         let response:IResponse = {
             success:success,
-            successMessage:successMessage,
-            errorMessage:errorMessage
+            message:message
         }
         return response;
     }

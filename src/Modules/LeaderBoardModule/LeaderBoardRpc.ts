@@ -8,18 +8,16 @@ let getLeaderBoardRpc:nkruntime.RpcFunction = function(ctx:nkruntime.Context , l
         logger.debug(JSON.stringify(leaderBoardData));
         response = {
             success:true,
-            leaderBoardData:leaderBoardData,
-            successMessage:"leader boards fetched successfuly",
-            errorMessage:""
+            data:leaderBoardData,
+            message:"leader boards fetched successfuly"
         }
 
     }catch(error:any){
         logger.debug(error.message);
         response = {
             success:false,
-            leaderBoardData:{},
-            successMessage:"",
-            errorMessage:error.message
+            data:{},
+            message:error.message
         }
     }
 

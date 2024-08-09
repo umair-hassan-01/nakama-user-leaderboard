@@ -1,11 +1,8 @@
 interface IGetLeaderBoardRequest{
-    leaderBoardId:string,
+    leaderBoardId:string
     ownerIds?:string[]
 }
 
-interface IGetLeaderBoardResponse{
-    success:boolean
-    leaderBoardData:nkruntime.LeaderboardRecordList
-    successMessage:string
-    errorMessage:string
+interface IGetLeaderBoardResponse extends IResponse{
+    data:nkruntime.LeaderboardRecordList
 }
